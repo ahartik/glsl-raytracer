@@ -21,7 +21,7 @@ void main()
     vec4 col = texture2D(colortex,tc);
 
     //sum =  vec4(1,1,1,1)-exp(-0.5*exposure*sum);
-    sum = max(vec4(0,0,0,0),sum-vec4(1,1,1,1));
+    sum = max(vec4(0,0,0,0),sum-vec4(0.1,0.1,0.1,0.1));
     sum = vec4(1,1,1,1)-exp(-0.5*exposure*sum);
     col =  col+sum*sum;
     col =  vec4(1,1,1,1)-exp(-exposure*col);

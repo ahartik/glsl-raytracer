@@ -1,3 +1,4 @@
+default:test
 CFLAGS=-I lib  -Wall -Os -g
 LDFLAGS=-lGL -lGLU -lglut -lGLEW -lSDL ./lib.so
 
