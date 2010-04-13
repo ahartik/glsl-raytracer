@@ -154,9 +154,9 @@ void traceballs(in vec3 d,inout vec3 P,out vec3 N,out vec4 col,out bool found,ou
         N = normalize(N);
         d = normalize(ex_light_pos-P);
         P0+=0.1*d;
-        for(int i=0;i<3;i++){
-            BALLRAY_shadow(i);
-        }
+        //for(int i=0;i<3;i++){
+            //BALLRAY_shadow(i);
+        //}
     }
     //BALLRAY(1);
     //BALLRAY(2);

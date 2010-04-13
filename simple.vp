@@ -5,11 +5,10 @@ in vec3 position;
 in vec3 normal;
 
 
-out vec4 ex_position;
-out vec3 ex_normal;
-out vec3 ex_eyedir;
-out vec3 ex_light_pos;
-out vec3 ex_normal8;
+varying out vec4 ex_position;
+varying out vec3 ex_normal;
+varying out vec3 ex_eyedir;
+varying out vec3 ex_light_pos;
 
 uniform vec3 eye_pos;
 uniform vec3 light_pos;
