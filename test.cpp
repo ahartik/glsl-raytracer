@@ -95,6 +95,7 @@ class Test
     Uniform<vec3> ball1;
     Uniform<vec3> ball2;
     Uniform<vec3> ball3;
+    Uniform<float> time;
       Uniform<mat4> projection;
     VertexbufferObject::Ptr vbo;
 
@@ -138,6 +139,7 @@ class Test
         UF(global_ambient,vec3(0.1,0.1,0.1)),
         UF(light_color,vec3(1,1,1)),
         UF(light_pos,vec3(10,10,-4)),
+        UF(time,0),
         colortex_u("colortex",0),
         postex_u("postex",1),
         dirtex_u("dirtex",2),
@@ -330,6 +332,7 @@ class Test
         ball1.var() = balpos(1);
         ball2.var() = balpos(2);
         ball3.var() = balpos(3);
+        time.var()=timef();
         //vec3(1*sin(t),1*cos(t),-3+1*sin(t*4)*cos(t));
         //ball1.var()=vec3(0,0,2);
 
@@ -370,9 +373,9 @@ class Test
 
 #if 1
 #endif
-        const int depth = 3;
+        const int depth = 2;
 
-#define BLOOM
+//#define BLOOM
         
         for(int i=1;i<=depth;i++)
         {

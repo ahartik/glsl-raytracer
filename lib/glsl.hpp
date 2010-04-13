@@ -219,7 +219,8 @@ class Program
       void set_var(const std::string& varname,T t)
       {
         int s = get_uniform_location(varname);
-        set_var(s,t);
+        if(s!=-1)
+            set_var(s,t);
       }
 
     void set_var(const int & s,int i)

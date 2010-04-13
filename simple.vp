@@ -9,7 +9,9 @@ out vec4 ex_position;
 out vec3 ex_normal;
 out vec3 ex_eyedir;
 out vec3 ex_light_pos;
+out vec3 ex_normal8;
 
+uniform vec3 eye_pos;
 uniform vec3 light_pos;
 uniform mat4 model_view;
 uniform mat4 projection;
@@ -18,11 +20,18 @@ uniform mat3 normal_matrix;
 void main(void)
 {
 
-  ex_position = vec4(position,1);
-  ex_normal = (normal);
-  vec3 eye_pos = vec3(0,0,0);
-  ex_eyedir = (eye_pos-ex_position.xyz);
-  ex_light_pos = light_pos;//(model_view*vec4(light_pos,1)).xyz;
-  gl_Position = projection*ex_position;
+    ex_position = vec4(position,1);
+    ex_normal = (normal);
+    //vec3 eye_pos = vec3(0,0,0);
+    
+    ex_eyedir = (eye_pos-ex_position.xyz);
+    ex_light_pos = light_pos;//(model_view*vec4(light_pos,1)).xyz;
+
+    vec3 p0 = vec3(0,0,-8);
+    vec3 p1 = vec3(1,0,-8);
+    vec3 up = cross(eye_pos,p1-p0);
+    ex_normal8 = normalize(cross(p1-p0,up));
+
+    gl_Position = projection*ex_position;
 
 }
